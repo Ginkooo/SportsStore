@@ -134,6 +134,7 @@ namespace SportsStore.Tests
             Assert.AreEqual(result[0], "Jabłka");
             Assert.AreEqual(result[1], "Pomarańcze");
             Assert.AreEqual(result[2], "Śliwki");
+
         }
    }
 }

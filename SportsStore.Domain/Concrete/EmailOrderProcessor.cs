@@ -30,15 +30,15 @@ namespace SportsStore.Domain.Concrete
                     smtpClient.EnableSsl = false;
                 }
 
-                StringBuilder body = new StringBuilder().AppendLine("Nowe zamówienie").AppendLine("----").AppendLine("Produkty");
+                StringBuilder body = new StringBuilder().AppendLine("Nowe zamówienie").AppendLine("----").AppendLine("Produkty:\n");
 
                 foreach (var line in cart.Lines)
                 {
                     var subtotal = line.Product.Price * line.Quantity;
-                    body.AppendFormat("{0} x {1} (wartość {2:c} ", line.Product.Price, line.Quantity, subtotal);
+                    body.AppendFormat("{0} {1} x {2} (wartość {3:c})\n", line.Product.Name, line.Product.Price, line.Quantity, subtotal);
                 }
 
-                body.AppendFormat("Wartość całkowita: {0:c}", cart.ConputeTotalValue())
+                body.AppendFormat("Wartość całkowita: {0:c}\n", cart.ConputeTotalValue())
                     .AppendLine("---")
                     .AppendLine("Wysyłka dla:")
                     .AppendLine(shippingDetails.Name)
@@ -66,7 +66,7 @@ namespace SportsStore.Domain.Concrete
 
                 smtpClient.Send(mailMessage);
             }
-            
+
         }
 
         public EmailOrderProcessor(EmailSettings settings)
@@ -74,18 +74,18 @@ namespace SportsStore.Domain.Concrete
             emailSettings = settings;
         }
 
-    
+
     }
 
     public class EmailSettings
     {
         public string MailToAdress = "piotr_czajka@outlook.com";
-        public string MailFromAdress = "sportsstore@interia.pl";
+        public string MailFromAdress = "bbbastore@gmail.com";
         public bool UseSsl = true;
-        public string Username = "sportsstore";
-        public string Password = "asdf1";
-        public string ServerName = "poczta.interia.pl";
-        public int ServerPort = 465;
+        public string Username = "bbbastore@gmail.com";
+        public string Password = "monolit1";
+        public string ServerName = "smtp.gmail.com";
+        public int ServerPort = 587;
         public bool WriteAsFile = false;
         public string FileLocation = @"C:\sports_store_emails";
     }

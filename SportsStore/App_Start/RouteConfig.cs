@@ -20,6 +20,12 @@ namespace SportsStore
             );
 
             routes.MapRoute(
+               null,
+               "Admin",
+               new { controller = "Admin", action = "Index" }
+               );
+
+            routes.MapRoute(
                 null,
                 "Strona{page}",
                 new { controller = "Product", action = "List", category = (string)null },
@@ -38,6 +44,8 @@ namespace SportsStore
                 new { controller = "Product", action = "List" },
                 new { page = @"\d+" }
                 );
+
+           
 
             routes.MapRoute(null, "{controller}/{action}");
 

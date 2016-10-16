@@ -205,5 +205,18 @@ namespace SportsStore.Tests
             Assert.AreEqual(true, result.ViewData.ModelState.IsValid);
         }
 
+        [TestMethod]
+        public void Is_Cart_Cleared_After_Submitting_Order()
+        {
+            Mock<IOrderProcessor> mock = new Mock<IOrderProcessor>();
+            Cart cart = new Cart();
+            cart.AddItem(new Product(), 1);
+            CartController target = new CartController(null, mock.Object);
+
+            ViewResult result = target.Checkout(cart, new ShippingDetails());
+
+            Assert.AreEqual(0, cart.Lines.Count());
+        }
+
     }
 }

@@ -9,30 +9,30 @@ namespace SportsStore.Domain.Entities
 {
     public class ShippingDetails
     {
-        [Required(ErrorMessage = "Proszę podać nazwisko.")]
+        [Required(ErrorMessage = "Please enter your surname.")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "Proszę podać pierwszy wiersz adresu.")]
-        [Display(Name = "Wiersz 1")]
+        [Required(ErrorMessage = "Please enter first line of your adress.")]
+        [Display(Name = "Line 1")]
         public string Line1 { get; set; }
-        [Display(Name = "Wiersz 2")]
+        [Display(Name = "Line 2")]
         public string Line2 { get; set; }
-        [Display(Name = "Wiersz 3")]
+        [Display(Name = "Line 3")]
         public string Line3 { get; set; }
 
-        [Required(ErrorMessage = "Proszę podać nazwę miasta")]
-        [Display(Name = "Miasto")]
+        [Required(ErrorMessage = "Please enter your city.")]
+        [Display(Name = "City")]
         public string City { get; set; }
 
-        [Required(ErrorMessage = "Proszę podać nazwę województwa")]
-        [Display(Name = "Województwo")]
+        [Required(ErrorMessage = "Please enter your state.")]
+        [Display(Name = "State")]
         public string State { get; set; }
 
-        [Display(Name = "Kod pocztowy")]
+        [Display(Name = "Zip code")]
         public string Zip { get; set; }
 
-        [Required(ErrorMessage = "Proszę podać nazwę kraju")]
-        [Display(Name = "Kraj")]
+        [Required(ErrorMessage = "Please enter your country.")]
+        [Display(Name = "Country")]
         public string Country { get; set; }
 
         public bool GiftWrap { get; set; }
